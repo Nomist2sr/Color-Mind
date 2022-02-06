@@ -12,14 +12,16 @@ public class color_random : MonoBehaviour
         Color.yellow,
     };
 
-    // Start is called before the first frame update
     void Start()
     {
+        changeColor();
+    }
+
+    void changeColor() {
         int randomIndex = Random.Range(0, 3);
         GetComponent<Renderer>().material.SetColor("_Color", colorList[randomIndex]);
     }
 
-    // Update is called once per frame
     void Update()
     {
     }
