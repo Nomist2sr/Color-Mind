@@ -26,8 +26,8 @@ public class playa_move : MonoBehaviour
         }
         else {
             if (movementH != 0) {
-                if (movementH < 4)
-                    movementH *= 1.01F;
+                if (movementH < 5)
+                    movementH *= 1.015F;
                 transform.position += new Vector3(movementH, 0, 0) * Time.deltaTime * MovementSpeed;
             }
             else {

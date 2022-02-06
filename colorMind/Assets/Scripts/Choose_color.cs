@@ -60,12 +60,28 @@ public class Choose_color : MonoBehaviour
             instruction.text += "not\n";
         }
         instruction.text += colorStringList[nextColorNb];
-        //changeBorderColor();
+        changeBorderColor();
     }
 
     void changeBorderColor() {
-        List<Color> borders = new List<Color>(4);
-        //borders[0] = GameObject.Find("Canvas/instruction").GetComponent<Text>();
+        bool doable = false;
+        Debug.Log("lesgooo");
+        List<Renderer> borders = new List<Renderer>() {
+            GameObject.Find("top_border").GetComponent<Renderer>(),
+            GameObject.Find("left_border").GetComponent<Renderer>(),
+            GameObject.Find("right_border").GetComponent<Renderer>(),
+            GameObject.Find("bottom_border").GetComponent<Renderer>()
+    };
+        borders[0].material.SetColor("_Color", colorList[Random.Range(0, 3)]);
+        borders[1].material.SetColor("_Color", colorList[Random.Range(0, 3)]);
+        borders[2].material.SetColor("_Color", colorList[Random.Range(0, 3)]);
+        borders[3].material.SetColor("_Color", colorList[Random.Range(0, 3)]);
+        for (int i = 0; i != 3; i++) {
+            if (includeColor == true && borders[i].material.color == currentColor)
+                doable = true;
+        }
+        if (doable == false)
+            borders[Random.Range(0, 3)].material.SetColor("_Color", currentColor);
     }
 
     void Update()
