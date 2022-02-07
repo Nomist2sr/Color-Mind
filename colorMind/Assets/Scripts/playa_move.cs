@@ -26,13 +26,13 @@ public class playa_move : MonoBehaviour
         }
         else {
             if (movementH != 0) {
-                if (movementH < 5)
-                    movementH *= 1.015F;
+                if (movementH < 8 && movementH > -8)
+                    movementH *= 1.1F;
                 transform.position += new Vector3(movementH, 0, 0) * Time.deltaTime * MovementSpeed;
             }
             else {
-                if (movementV < 4)
-                    movementV *= 1.01F;
+                if (movementV < 8 && movementV > -8)
+                    movementV *= 1.1F;
                 transform.position += new Vector3(0, movementV, 0) * Time.deltaTime * MovementSpeed;
             }
         }

@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Choose_color : MonoBehaviour
 {
-    public Color currentColor;
+    public Color currentColor = Color.black;
     public bool includeColor;
 
     public List<Color> colorList = new List<Color>()
@@ -43,7 +42,7 @@ public class Choose_color : MonoBehaviour
         newBlock();
     }
 
-    void newBlock() {
+    public void newBlock() {
         int nextColorNb = Random.Range(0, 3);
         int nbNot;
         includeColor = Random.value > 0.5f;
