@@ -66,7 +66,8 @@ public class SetAllColors : MonoBehaviour
 
     void changeBorderColor()
     {
-        bool doable = false;
+        Color newColor;
+        bool doable = true;
         List<Renderer> borders = new List<Renderer>()
         {
             GameObject.Find("Display/Map/Top Border").GetComponent<Renderer>(),
@@ -80,11 +81,20 @@ public class SetAllColors : MonoBehaviour
         borders[3].material.SetColor("_Color", colorList[Random.Range(0, 3)]);
         for (int i = 0; i != 3; i++)
         {
-            if (includeColor == true && borders[i].material.color == currentColor)
+            if (includeColor == true && borders[i].material.color == currentColor ||
+                includeColor == false && borders[i].material.color != currentColor)
                 doable = true;
         }
-        if (doable == false)
-            borders[Random.Range(0, 3)].material.SetColor("_Color", currentColor);
+        if (doable == false) {
+            if (includeColor == true)
+                borders[Random.Range(0, 3)].material.SetColor("_Color", currentColor);
+            else {
+                newColor = colorList[Random.Range(0, 3)];
+                while (newColor == currentColor)
+                    newColor = colorList[Random.Range(0, 3)];
+                borders[Random.Range(0, 3)].material.SetColor("_Color", currentColor);
+            }
+        }
     }
 
     void Update()
