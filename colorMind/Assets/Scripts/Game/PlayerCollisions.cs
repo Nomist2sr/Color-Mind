@@ -3,9 +3,16 @@ using UnityEngine.UI;
 
 public class PlayerCollisions : MonoBehaviour
 {
+    public static PlayerCollisions instance;
     public int playa_score = 0;
     public SetAllColors chooseColor;
     public PlayerMoves playa_move;
+
+    private void Awake()
+    {
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     private void OnTriggerEnter2D (Collider2D other) {
         Color currentColor = chooseColor.GetComponent<SetAllColors>().currentColor;
