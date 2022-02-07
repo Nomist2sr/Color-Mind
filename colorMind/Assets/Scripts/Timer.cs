@@ -17,9 +17,10 @@ public class Timer : MonoBehaviour
     void Update()
     {
         _currentTime -= 1 * Time.deltaTime;
-        _text.text = _currentTime.ToString("F2");
+        _text.text = _currentTime.ToString("F1");
 
-        if (_currentTime <= 0) {
+        if (_currentTime <= 0)
+        {
             _currentTime = 0;
         }
     }
