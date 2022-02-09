@@ -1,4 +1,4 @@
-# Color-Mind
+# Color-Mind (made on Unity)
 
 A Game inspired by "Not Not" an existant game.
 
